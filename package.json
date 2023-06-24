@@ -2,10 +2,16 @@
   "name": "blog",
   "version": "1.0.0",
   "description": "blog node",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
+    "main": "nodemon --inspect src/index.js",
+    "sass": "sass --watch src/resources/scss/:src/public/css/app.css",
+    "prettier": "prettier --check \"src/**/(*.js)\"",
+    "prettier:fix": "prettier --write \"src/**/(*.js)\"",
+    "lint": "eslint -ext js",
+    "lint:fix": "eslint --fix --ext js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --inspect index.js"
+    "start": "npm-run-all -p -r main sass"
   },
   "repository": {
     "type": "git",
@@ -25,9 +31,19 @@
   },
   "homepage": "https://github.com/HHUUYYLLEE/nodejs_blog#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.7",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.3.0",
+    "tailwindcss": "^3.3.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "eslint": "^8.43.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.22",
+    "sass": "^1.63.6"
   }
 }
